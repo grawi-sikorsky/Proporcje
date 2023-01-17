@@ -1,0 +1,27 @@
+.mainview-container{
+  margin: 0;
+  text-align: center;
+  font-family:"Montserrat", sans-serif
+}
+.mainview-container h2{
+  font-weight: 600;
+}
+.proportion-wrapper{
+  padding-top: 5%;
+}
+
+.proportion-header{
+  padding: 20px;
+}
+
+.proportion-table{
+  margin: auto;
+  text-align: center;
+  min-width: 75%
+}
+.proportion-table tr{
+  height: 50px;
+}
+.proportion-table td{
+
+}
