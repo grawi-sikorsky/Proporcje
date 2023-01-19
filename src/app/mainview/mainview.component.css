@@ -5,38 +5,50 @@ input[matinput]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 /* Firefox */
 input[matinput][type=number] {
   -moz-appearance: textfield;
 }
 
 
-.mainview-container{
+.mainview-container {
   margin: 0;
   text-align: center;
-  font-family:"Montserrat", sans-serif
+  font-family: "Montserrat", sans-serif
 }
-.mainview-container h2{
+
+.mainview-container h2 {
   font-weight: 600;
 }
-.proportion-wrapper{
+
+.proportion-wrapper {
   padding-top: 5%;
 }
 
-.proportion-header{
+.proportion-header {
   padding: 20px;
 }
 
-.proportion-table{
+.proportion-table {
   margin: auto;
   text-align: center;
   min-width: 50%
 }
-.proportion-table tr{
+
+.proportion-table tr {
   height: 50px;
 }
-.proportion-table td{
+
+.proportion-table td {
   padding: 15px;
+}
+
+
+.prop-wrapper {
+  width: 50%;
+  text-align: center;
+  margin: auto;
 }
 
 
@@ -44,26 +56,71 @@ input[matinput][type=number] {
 /* GRID TEMPLATE */
 .proportion-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 0.15fr 1fr;
+  grid-template-rows: 1fr 0.1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "a asdf b"
-    "c asdf d";
+    "a . b"
+    "divider-a ex divider-b"
+    "c . d";
 }
-
-.asdf { grid-area: asdf; }
 
 .a {
   grid-area: a;
-  /* display: flex;
-  flex-wrap: wrap;
-  margin: auto; */
+  margin: 5px;
+  display: inherit;
 }
 
-.b { grid-area: b; }
+.b {
+  grid-area: b;
+  margin: 5px;
+  display: inherit;
+}
 
-.c { grid-area: c; }
+.c {
+  grid-area: c;
+  margin: 5px;
+  display: inherit;
+}
 
-.d { grid-area: d; }
+.d {
+  grid-area: d;
+  margin: 5px;
+  display: inherit;
+}
+
+.divider-a {
+  grid-area: divider-a;
+}
+
+.divider-b {
+  grid-area: divider-b;
+}
+
+.ex {
+  grid-area: ex;
+  margin: auto;
+  font-size: large;
+  font-weight: 600;
+}
+
+.centerinput{
+  text-align: center;
+}
+
+.divajder{
+  margin-top: 10px;
+}
+
+.result {
+  margin: 10px;
+  padding-top: 10px;
+  font-weight: 600;
+  font-size: larger;
+}
+
+/* Remove subscript hint under input form field (angular 15+) */
+:host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
