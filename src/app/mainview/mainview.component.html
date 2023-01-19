@@ -8,38 +8,51 @@
     <div class="prop-wrapper">
 
       <div class="proportion-container">
-        <div class="a">
-          <mat-form-field appearance="outline">
-            <mat-label>X</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" >
-          </mat-form-field>
-        </div>
-        <div class="b">
-          <mat-form-field appearance="outline">
-            <mat-label>X</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" >
-          </mat-form-field>
-        </div>
+
+
+          <div class="a">
+            <mat-form-field appearance="outline">
+              <mat-label>A</mat-label>
+              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="a" >
+            </mat-form-field>
+          </div>
+
+          <div class="b">
+            <mat-form-field appearance="outline">
+              <mat-label>B</mat-label>
+              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="b" >
+            </mat-form-field>
+          </div>
+
         <div class="c">
           <mat-form-field appearance="outline">
-            <mat-label>X</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" >
+            <mat-label>C</mat-label>
+            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="c" >
           </mat-form-field>
         </div>
+
         <div class="d">
           <mat-form-field appearance="outline">
-            <mat-label>X</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" >
+            <mat-label>D</mat-label>
+            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="d" >
           </mat-form-field>
         </div>
+
         <div class="divider-a"><mat-divider class="divajder"></mat-divider></div>
         <div class="divider-b"><mat-divider class="divajder"></mat-divider></div>
         <div class="ex"><i class="fa-solid fa-x"></i></div>
       </div>
 
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="toCalculate">
+        <mat-radio-button class="example-radio-button" *ngFor="let box of toCalculate" [value]="box" (input)="radioChange(box)">
+          {{box}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+
       <div class="result">
         <mat-card style="background: aliceblue;">
-          <mat-card-content>Simple card</mat-card-content>
+          <mat-card-content>{{result}}</mat-card-content>
         </mat-card>
       </div>
 
@@ -49,6 +62,8 @@
 
 
   </div>
+
+
 
 
 
