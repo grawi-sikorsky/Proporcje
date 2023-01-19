@@ -19,55 +19,36 @@ export class MainviewComponent {
   c:number=1;
   d:number=1;
   toCalculate: string[] = ['A', 'B', 'C', 'D'];
+  selected:string='';
   result:string="Wynik";
 
-  
+
   ngOnInit(): void {
 
   }
 
 
   radioChange(box:string){
-    if(box === "A"){
+    this.selected = box;
+  }
+
+  update(){
+    if(this.selected === 'A'){
       this.a = (this.b*this.c/this.d);
       this.result = this.a.toString();
     }
-    else if(box === "B"){
+    else if(this.selected === 'B'){
       this.b = (this.a*this.d/this.c);
       this.result = this.b.toString();
     }
-    else if (box === "C"){
+    else if (this.selected === 'C'){
       this.c = (this.a*this.d/this.b);
       this.result = this.c.toString();
     }
-    else if (box === "D"){
+    else if (this.selected === 'D'){
       this.d = (this.b*this.c/this.a);
       this.result = this.d.toString();
     }
   }
 
-  onChangeA(){
-    //a := B*C/D  [a,b,c,x]
-    if(this.d === 0){ return; }
-    this.a = (this.b*this.c/this.d);
-    this.result = this.a.toString();
-  }
-  onChangeB(){
-    //b := A*D/C  [a,b,c,x]
-    if(this.c === 0){ return; }
-    this.b = (this.a*this.d/this.c);
-    this.result = this.b.toString();
-  }
-  onChangeC(){
-    //c := A*D/B  [a,b,c,x]
-    if(this.b === 0){ return; }
-    this.c = (this.a*this.d/this.b);
-    this.result = this.c.toString();
-  }
-  onChangeD(){
-    //d := B*C/A
-    if(this.a === 0 ){ return; }
-    this.d = (this.b*this.c/this.a);
-    this.result = this.d.toString();
-  }
 }

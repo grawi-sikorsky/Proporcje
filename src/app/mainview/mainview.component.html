@@ -13,28 +13,28 @@
           <div class="a">
             <mat-form-field appearance="outline">
               <mat-label>A</mat-label>
-              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="a" >
+              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="a" (ngModelChange)="update()">
             </mat-form-field>
           </div>
 
           <div class="b">
             <mat-form-field appearance="outline">
               <mat-label>B</mat-label>
-              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="b" >
+              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="b" (input)="update()">
             </mat-form-field>
           </div>
 
         <div class="c">
           <mat-form-field appearance="outline">
             <mat-label>C</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="c" >
+            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="c" (input)="update()">
           </mat-form-field>
         </div>
 
         <div class="d">
           <mat-form-field appearance="outline">
             <mat-label>D</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="d" >
+            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="d" (input)="update()">
           </mat-form-field>
         </div>
 
@@ -44,7 +44,7 @@
       </div>
 
       <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="toCalculate">
-        <mat-radio-button class="example-radio-button" *ngFor="let box of toCalculate" [value]="box" (input)="radioChange(box)">
+        <mat-radio-button class="example-radio-button" *ngFor="let box of toCalculate" [value]="box" (ngModelChange)="radioChange(box)">
           {{box}}
         </mat-radio-button>
       </mat-radio-group>
