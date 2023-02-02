@@ -50,5 +50,9 @@ export class MainviewComponent {
       this.result = this.d.toString();
     }
   }
-
+  isDisabled(field:string):boolean{
+    //console.log(this.selected);
+    if(this.selected !== field){ return false; }
+    return true;
+  }
 }
