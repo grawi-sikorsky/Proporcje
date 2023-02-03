@@ -44,9 +44,20 @@ input[matinput][type=number] {
   padding: 15px;
 }
 
+@media only screen and (max-width: 640px) {
+  .prop-wrapper {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 980px) {
+  .prop-wrapper {
+    width: 50%;
+  }
+}
+
 
 .prop-wrapper {
-  width: 50%;
+  /* width: 100%; */
   text-align: center;
   margin: auto;
 }
@@ -114,13 +125,33 @@ input[matinput][type=number] {
 }
 
 .result {
-  margin: 10px;
-  padding-top: 10px;
+  background-color: rgb(197, 240, 185);
+  margin: 30px;
+  padding: 10px;
   font-weight: 600;
   font-size: larger;
+
+  border-radius: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
 /* Remove subscript hint under input form field (angular 15+) */
 :host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
   display: none;
+}
+
+
+.checkedButton{
+  color: rgb(38, 139, 55);
+}
+.uncheckedButton{
+  color: rgb(40, 89, 196);
+}
+.decimaSwitcher{
+  margin-top: 40px;
+  padding: 10px;
+  border-radius: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }

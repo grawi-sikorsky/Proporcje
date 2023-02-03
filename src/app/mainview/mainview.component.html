@@ -13,28 +13,40 @@
           <div class="a">
             <mat-form-field appearance="outline">
               <mat-label>A</mat-label>
-              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="a" (ngModelChange)="update()" [disabled]="isDisabled('A')">
+              <input matInput class="centerinput" type="number" maxlength="10" autocomplete="off" [(ngModel)]="a" (input)="updateCalculations()" [disabled]="isDisabled('A')">
+              <button mat-icon-button matSuffix (click)="radioChange('A')" matTooltip="Oblicz dla A">
+                <mat-icon [ngClass]="{'checkedButton': selected === 'A', 'uncheckedButton': selected !== 'A'}">{{selected === 'A' ? 'check_circle' : 'calculate'}}</mat-icon>
+              </button>
             </mat-form-field>
           </div>
 
           <div class="b">
             <mat-form-field appearance="outline">
               <mat-label>B</mat-label>
-              <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="b" (input)="update()" [disabled]="isDisabled('B')">
+              <input matInput class="centerinput" type="number" maxlength="10" autocomplete="off" [(ngModel)]="b" (input)="updateCalculations()" [disabled]="isDisabled('B')">
+              <button mat-icon-button matSuffix (click)="radioChange('B')" matTooltip="Oblicz dla B">
+                <mat-icon [ngClass]="{'checkedButton': selected === 'B', 'uncheckedButton': selected !== 'B'}">{{selected === 'B' ? 'check_circle' : 'calculate'}}</mat-icon>
+              </button>
             </mat-form-field>
           </div>
 
         <div class="c">
           <mat-form-field appearance="outline">
             <mat-label>C</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="c" (input)="update()" [disabled]="isDisabled('C')">
+            <input matInput class="centerinput" type="number" maxlength="10" autocomplete="off" [(ngModel)]="c" (input)="updateCalculations()" [disabled]="isDisabled('C')">
+            <button mat-icon-button matSuffix (click)="radioChange('C')" matTooltip="Oblicz dla C">
+              <mat-icon [ngClass]="{'checkedButton': selected === 'C', 'uncheckedButton': selected !== 'C'}">{{selected === 'C' ? 'check_circle' : 'calculate'}}</mat-icon>
+            </button>
           </mat-form-field>
         </div>
 
         <div class="d">
           <mat-form-field appearance="outline">
             <mat-label>D</mat-label>
-            <input matInput class="centerinput" type="number" maxlength="6" autocomplete="off" [(ngModel)]="d" (input)="update()" [disabled]="isDisabled('D')">
+            <input matInput class="centerinput" type="number" maxlength="10" autocomplete="off" [(ngModel)]="d" (input)="updateCalculations()" [disabled]="isDisabled('D')">
+            <button mat-icon-button matSuffix (click)="radioChange('D')" matTooltip="Oblicz dla D">
+              <mat-icon [ngClass]="{'checkedButton': selected === 'D', 'uncheckedButton': selected !== 'D'}"> {{selected === 'D' ? 'check_circle' : 'calculate'}}</mat-icon>
+            </button>
           </mat-form-field>
         </div>
 
@@ -43,18 +55,37 @@
         <div class="ex"><i class="fa-solid fa-x"></i></div>
       </div>
 
-      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-        <mat-radio-button class="example-radio-button" *ngFor="let box of toCalculate" [value]="box" (change)="radioChange(box)">
-          {{box}}
-        </mat-radio-button>
-      </mat-radio-group>
-
 
       <div class="result">
-        <mat-card style="background: aliceblue;">
-          <mat-card-content>{{result}}</mat-card-content>
-        </mat-card>
+        <!-- <mat-divider class="divajder"></mat-divider> -->
+        <!-- <mat-divider class="divajder"></mat-divider> -->
+
+        {{result}}
+
+        <!-- <mat-card style="background: rgb(187, 223, 255);">
+          <mat-card-content>{{ result }}</mat-card-content>
+        </mat-card> -->
       </div>
+
+      <div class="decimaSwitcher">
+        <h4>Zaokrąglij po przecinku: </h4>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="decimal">
+          <mat-radio-button class="example-radio-button" *ngFor="let decimalOption of decimalOptions" [value]="decimalOption" (change)="decimalSwitch(decimalOption)">
+            {{decimalOption}}
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <!-- <h4>Zaokrąglij po przecinku: </h4>
+        <mat-form-field appearance="outline">
+          <mat-label>Zaokrąglij do: </mat-label>
+          <mat-select [(value)]="decimal">
+            <mat-option *ngFor="let decimalOption of decimalOptions" [value]="decimalOption" (click)="decimalSwitch(decimalOption)">
+              {{decimalOption}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+      </div>
+
 
 
     </div>
